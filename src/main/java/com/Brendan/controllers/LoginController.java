@@ -124,17 +124,20 @@ public class LoginController extends GridPane {
 
     protected static Connection getSQLConnection() {
         Connection con = null;
-        try {
+        try
+        {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost/pat";
             String user = "Brendan";
             String password = "02Ruffies";
             con = DriverManager.getConnection(url, user, password);
-        } catch (ClassNotFoundException e2) {
+        }
+        catch (ClassNotFoundException e2) {
             e2.getException();
             System.out.println(e2.getMessage() + " failed");
             System.exit(0);
-        } catch (SQLException e1) {
+        }
+        catch (SQLException e1) {
 
             System.out.println(e1.getMessage());
             System.exit(0);
@@ -147,26 +150,33 @@ public class LoginController extends GridPane {
         Connection con = getSQLConnection();
         boolean login = false;
         int returnValue = 0;
-        try {
+        try
+        {
             Statement s = con.createStatement();
             String select = "SELECT * FROM EMPLOYEES;";
             ResultSet rows;
             rows = s.executeQuery(select);
 
             while (rows.next()) {
-                if (userlog.equalsIgnoreCase(null) || userpass.equalsIgnoreCase(null)) {
-                    login = false;
-                    break;
+                if (userlog.equalsIgnoreCase(null) || userpass.equalsIgnoreCase(null))
+                {
+                        login = false;
+                        break;
                 }
+
                 String EmployeeID = rows.getString("EmployeeID");
                 boolean loginBefore = Boolean.parseBoolean(rows.getString("LoginBefore"));
                 isadmin = Boolean.parseBoolean(rows.getString("Admin"));
-                if (EmployeeID.equalsIgnoreCase(userlog)) {
+
+                if (EmployeeID.equalsIgnoreCase(userlog))
+                {
                     String Password = rows.getString("Password");
-                    if (Password.equals(userpass)) {
+                    if (Password.equals(userpass))
+                    {
                         String Status = rows.getString("Status");
 
-                        if (!loginBefore) {
+                        if (!loginBefore)
+                        {
                             returnValue = 2;
                             login = true;
                             break;
@@ -183,12 +193,16 @@ public class LoginController extends GridPane {
                     }
                 }
             }
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             System.out.println(e.getErrorCode());
             System.exit(0);
             return 4;
         }
-        if (!login) {
+
+        if (!login)
+        {
             returnValue = 0;
         }
         return returnValue;
