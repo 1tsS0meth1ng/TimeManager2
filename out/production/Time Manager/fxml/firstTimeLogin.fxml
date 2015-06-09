@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.Brendan.controllers.LoginController">
+   <content>
+      <AnchorPane prefHeight="452.0" prefWidth="615.0">
+         <children>
+            <TextField layoutX="86.0" layoutY="111.0" />
+            <TextField layoutX="249.0" layoutY="111.0" />
+            <TextField layoutX="416.0" layoutY="111.0" />
+            <Label fx:id="userID" layoutX="86.0" layoutY="63.0" prefHeight="17.0" prefWidth="76.0" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
