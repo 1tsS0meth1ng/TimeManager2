@@ -28,6 +28,8 @@ public class LoginController extends GridPane {
     private Label dialog;
     @FXML
     private AnchorPane loading;
+    @FXML
+    private GridPane loginScreen;
 
     private static boolean isadmin;
 
